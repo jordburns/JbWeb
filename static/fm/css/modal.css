@@ -1,0 +1,23 @@
+
+
+.modal-dialog {
+  height: 680px !important;
+  margin-top: 70px;
+  margin-left: 200px;
+}
+
+.modal-content {
+  height: 80% !important;
+  overflow:visible;
+  width: 155%;
+}
+
+.modal-body {
+  height: 80%;
+  overflow: auto;
+}
+
+.modal-footer {
+
+    padding: 10px;
+}

@@ -1,0 +1,29 @@
+{% extends 'jb_blog/blog_base.html' %}
+
+
+
+{% block actions %}
+
+{% if perms.jb_blog.add_post %}
+<p>Actions: <a href="{% url 'post-create' %}" class="fm-create btn btn-xs btn-warning" data-fm-head="Create Post" data-fm-callback="reload">Create new</a></p>
+
+{% endif %}
+{% endblock %}
+
+{% block blog_content %}
+{% if all_posts %}
+{% for post in all_posts %}
+
+{% include "jb_blog/post_instance.html" %}
+
+{% endfor %}
+{% else %}
+{% if user.is_staff %}
+<p>No Posts - Create <a href="{% url 'post-create' %}">Post</a> </p>
+{% else %}
+<p>Check back for updates later</p>
+{% endif %} 
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+[
+{
+    "fields": {
+        "username": "j",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-02-03T20:26:17.331Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$LidCOsbJfCgC$u+zUokXGudFF5PltWmc+zy1Jo8/3u60QhFVVteGMpmM=",
+        "email": "j@j.com",
+        "date_joined": "2015-02-01T20:28:10.108Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "published_date": "2015-02-01T21:07:26Z",
+        "title": "Another Test Post",
+        "abstract": "terst",
+        "author": 1,
+        "created": "2015-02-01T21:06:57Z",
+        "content": "2015-02-02 19:35:30.061086+00:00",
+        "published": true,
+        "slug": "another-test-post"
+    },
+    "model": "jb_blog.post",
+    "pk": 2
+},
+{
+    "fields": {
+        "published_date": null,
+        "title": "test-article-1",
+        "abstract": "test",
+        "author": 1,
+        "created": "2015-02-02T00:05:16Z",
+        "content": "2015-02-02 19:35:30.061086+00:00",
+        "published": false,
+        "slug": "test-article-1"
+    },
+    "model": "jb_blog.post",
+    "pk": 8
+},
+{
+    "fields": {
+        "published_date": null,
+        "title": "test post 2",
+        "abstract": "test post",
+        "author": 1,
+        "created": "2015-02-02T19:12:08Z",
+        "content": "2015-02-02 19:35:30.061086+00:00",
+        "published": false,
+        "slug": "test-post-2"
+    },
+    "model": "jb_blog.post",
+    "pk": 9
+}
+]

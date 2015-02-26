@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load static %}
+{% load fm_tags %}
+
+<!-- Modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="fm-modal">
+    <div class="modal-loader" style="display: none;">
+        <img class="modal-loader-img" src="{% static "fm/img/loading-bars.svg" %}">
+    </div>
+  <div class="fm-modal modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     <div class="modal-head">
+      </div>
+    </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+            <div class="modal-buttons">
+        <button class="btn btn-primary" type="submit">
+            {% trans 'OK' %}
+        </button>
+        <button data-dismiss="modal" class="btn btn-default" type="button"><i class="fa fa-times"></i>
+            {% trans 'Cancel' %}
+        </button>
+      </div>
+      </div>
+  </div>
+</div>
+<link rel="stylesheet" href="{% static "fm/css/modal.css" %}" />
+<script type="text/javascript" src="{% static "fm/js/fm.js" %}?v={% fm_version %}"></script>
+<script type="text/javascript">
+         $.fn.modal.Constructor.prototype.enforceFocus = function () {
+            var $modalElement = this.$element;
+             $(document).on('focusin.modal', function (e) {
+             var $parent = $(e.target.parentNode);
+             if ($modalElement[0] !== e.target && !$modalElement.has(e.target).length
+            // add whatever conditions you need here:
+            &&
+            !$parent.hasClass('cke_dialog_ui_input_select') && !$parent.hasClass('cke_dialog_ui_input_text')) {
+            $modalElement.focus()
+        }
+    })
+};
+
+
+</script>
+
+

@@ -1,0 +1,49 @@
+{% extends 'jb_blog/blog_base.html' %}
+
+
+{% block actions %}
+
+{% if not post.published %}
+
+              <div class="alert alert-dismissible alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Heads up!</strong> You're now in <strong>Draft Mode</strong>
+              </div>
+
+{% endif %}
+
+{% if perms.jb_blog.change_post %}
+Actions:  <a class="btn btn-primary btn-xs" href="{% url 'post-update' post.slug %}" role="button">Update Post</a>
+{% if post.published %}
+<a class="btn btn-warning btn-xs" href="{% url 'publish-post' post.slug %}" role="button">Take Offline</a>
+{% else %}
+<a class="btn btn-info btn-xs" href="{% url 'publish-post' post.slug %}" role="button">Publish Post</a>
+
+{% endif %}
+{% endif %}
+{% if perms.jb_blog.delete_post %}
+<a class="btn btn-danger btn-xs" href="{% url 'post-delete' post.slug %}" role="button">Delete Post</a>
+
+{% endif %}
+
+{% endblock %}
+
+{% block blog_content %}
+<div class="col-sm-12">
+<h1>{{ post.title }}</h1> 
+{% if user.is_staff %}
+{% endif %}
+{% if post.published_date %}
+<p>Published Date: {{ post.published_date }}</p>
+{% endif %}
+<p>Published: {{ post.published }}</p>
+<p>Author: {{ post.author }}</p>
+<p>Created Date: {{post.created}}</p>
+Abstract: 
+
+{{post.abstract|safe}}
+
+{{post.content| safe}}
+
+</div>
+{% endblock %}

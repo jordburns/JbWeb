@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="panel panel-primary">
+<div class="panel-heading">
+	{% if 'post_create' in request.path %}
+	<strong>Add Post</strong>
+	{% else %} 
+	<strong>Update Post</strong>
+	{% endif %}
+	</div>
+	<div class="panel-body">
+	<div class="col-sm-12">
+<form action="" method="post">{% csrf_token %}
+	{{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" value="{% if 'post_create' in request.path %}Create Post{% else %}Update Content{% endif %}" />
+</form>
+</div>
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+{% endblock %}	
+
